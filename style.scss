@@ -1,0 +1,255 @@
+/* Variables */
+$header: 50px;
+$footer: 100px;
+$content: auto;
+$background: #343C49;
+$placeholder: lightgrey;
+$border: 1px solid #fff;
+
+
+p {
+    font-size: 13px;
+}
+
+body {
+    background-color: $background;
+    font-family: 'Verdana', sans-serif;
+    color: #fff;
+    margin: 0;
+}
+
+/* Grid elements positioning */
+
+.header {
+    grid-column: col 2 / span 4;
+    grid-row: row ;
+    display: flex;
+    align-items: center;
+}
+
+
+
+.wrapper {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: [col] 50px [col] 100px [col] 40% [col] auto [col] 100px  ;
+    grid-template-rows: [row] $header [row] $content [row] $footer [row];
+    //background-color: #fff;
+    color: #444;
+    height: 100vh;
+    position: relative;
+
+    &:after {
+        content: "";
+        background: url("http://www.curiousnut.com/wp-content/uploads/2015/11/Malaysian-Claypot-Chicken-Rice2.jpg");
+        background-size: 100% 100vh;
+        background-repeat: no-repeat;
+        opacity: 0.7;
+        position: absolute;
+        left: 50% ;
+        z-index: -1;
+        width: 50%;
+        height: 100vh;
+    }
+}
+
+.box {
+    background-color: transparent;
+    color: #fff;
+    border-radius: 5px;
+    padding: 20px;
+    font-size: 12px;
+}
+
+.search {
+    flex-grow: 2;
+
+    & input {
+        background-color: $background;
+        color: #fff;
+        padding: 5px;
+        border: none;
+    }
+}
+
+::-webkit-input-placeholder {
+    color: $placeholder;
+}
+
+.menu {
+    flex-grow: 4;
+    display: flex;
+    justify-content: flex-end;
+
+    a {
+        padding: 0px 15px;
+        font-weight: 700;
+
+        &:hover {   
+            text-decoration: underline;
+        }
+    }
+}
+
+.c {
+    grid-column: col 2 ;
+    grid-row: row 2 ;
+    text-transform: uppercase;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+.receipe-label {
+    display: inline-block;
+    position: relative;
+    //writing-mode: vertical-rl;
+    transform: rotate(270deg);
+    // top: 100px;
+        &:before,
+        &:after {
+        content: "";
+        position: absolute;
+        height: 5px;
+        border-top: 1px solid white;
+        top: 6px;
+        width: 50px;
+        }
+        &:before {
+        right: 100%;
+        margin-right: 15px;
+        }
+        &:after {
+        left: 100%;
+        margin-left: 15px;
+        }
+}
+
+.receipe-description {
+    grid-column: col 3 / span 1 ;
+    grid-row: row 2 ;
+}
+
+.receipe-number {
+    grid-column: col 4 / span 1 ;
+    grid-row: row 2 ;
+}
+
+.social-media {
+    grid-column: col 5 / span 1 ;
+    grid-row: row 2 ;
+
+    a {
+        display: flex;
+        align-self: center;
+        padding: 20px 0px;
+        opacity: 0.8;
+
+        &:before {
+            font-size: 2rem;
+        }
+    }
+
+}
+
+.footer {
+    grid-column: col 2 / span 4;
+    grid-row: row 3;
+    bottom: 0;
+    display: flex;
+    align-items: center;
+    color: #fff;
+    height: 100%;
+    font-size: 0.8rem;
+}
+
+.other-receipe {
+    flex-grow: 1;
+    background-color: #454C5C;
+    opacity: 0.85;
+    display: flex;
+    align-items: center;
+    height: 100%;
+    justify-content: center;
+}
+
+.number-container {
+    width: 50%;
+    border-bottom: $border;
+    padding-bottom: 10px;
+    background-color: rgba(0,0,0,0.1);
+}
+
+.receipe-number {
+    display: flex;
+    align-items: center;
+
+   .number, 
+   .title,
+   .empty {
+       display: inline-block;
+   }
+   
+   .empty {
+        width: 30%;
+   }
+
+   .number {
+       text-align: right;
+       font-size: 60px;
+       width: 30%;
+       padding: 5px 20px;
+       border-right: $border;
+   }
+
+   .title {
+       font-size: 30px;
+       width: 30%;
+       padding: 5px 10px;
+       font-weight: 600;
+   }
+}
+
+.receipe-title {
+    line-height: 2; 
+    width: 300px;
+    text-align: left;
+
+    span {
+        background-color: #4B5260;
+        color: #fff; 
+        display: inline;
+        padding: 0.45rem 0.6rem;
+        font-size: 2.3rem;
+        font-family: 'Times New Roman';
+        font-weight: 700;
+    }
+}
+
+.description {
+    display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical; 
+  overflow: hidden;
+  padding-right: 20px; 
+}
+
+button {
+    margin-top: 20px;
+    padding: 8px 15px;
+    border-radius: 0.2rem;
+    background-color: #4591E0;
+    border: 1px solid #4591E0;
+    color: #fff;
+
+    &:hover {
+        background-color: rgb(6, 43, 83);
+        border: 1px solid rgb(6, 43, 83);
+    }
+
+    &:active,
+    &:focus {
+        border: 1px solid rgb(6, 43, 83);
+        outline: none;
+    }
+}
