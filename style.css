@@ -1,4 +1,5 @@
 /* Variables */
+/* General styling */
 p {
   font-size: 13px; }
 
@@ -9,12 +10,6 @@ body {
   margin: 0; }
 
 /* Grid elements positioning */
-.header {
-  grid-column: col 2 / span 4;
-  grid-row: row;
-  display: flex;
-  align-items: center; }
-
 .wrapper {
   display: grid;
   grid-gap: 10px;
@@ -22,7 +17,8 @@ body {
   grid-template-rows: [row] 50px [row] auto [row] 100px [row];
   color: #444;
   height: 100vh;
-  position: relative; }
+  position: relative;
+  /* Big image in the background */ }
   .wrapper:after {
     content: "";
     background: url("http://www.curiousnut.com/wp-content/uploads/2015/11/Malaysian-Claypot-Chicken-Rice2.jpg");
@@ -36,58 +32,23 @@ body {
     height: 100vh; }
 
 .box {
-  background-color: transparent;
   color: #fff;
-  border-radius: 5px;
   padding: 20px;
   font-size: 12px; }
 
-.search {
-  flex-grow: 2; }
-  .search input {
-    background-color: #343C49;
-    color: #fff;
-    padding: 5px;
-    border: none; }
-
-::-webkit-input-placeholder {
-  color: lightgrey; }
-
-.menu {
-  flex-grow: 4;
+.header {
+  grid-column: col 2 / span 4;
+  grid-row: row;
   display: flex;
-  justify-content: flex-end; }
-  .menu a {
-    padding: 0px 15px;
-    font-weight: 700; }
-    .menu a:hover {
-      text-decoration: underline; }
+  align-items: center; }
 
-.c {
+.receipe-span {
   grid-column: col 2;
   grid-row: row 2;
   text-transform: uppercase;
   text-align: center;
   display: flex;
   align-items: center; }
-
-.receipe-label {
-  display: inline-block;
-  position: relative;
-  transform: rotate(270deg); }
-  .receipe-label:before, .receipe-label:after {
-    content: "";
-    position: absolute;
-    height: 5px;
-    border-top: 1px solid white;
-    top: 6px;
-    width: 50px; }
-  .receipe-label:before {
-    right: 100%;
-    margin-right: 15px; }
-  .receipe-label:after {
-    left: 100%;
-    margin-left: 15px; }
 
 .receipe-description {
   grid-column: col 3/span 1;
@@ -118,15 +79,54 @@ body {
   height: 100%;
   font-size: 0.8rem; }
 
-.other-receipe {
-  flex-grow: 1;
-  background-color: #454C5C;
-  opacity: 0.85;
-  display: flex;
-  align-items: center;
-  height: 100%;
-  justify-content: center; }
+/* Header elements */
+.search {
+  flex-grow: 2; }
+  .search input {
+    background-color: #343C49;
+    color: #fff;
+    padding: 5px;
+    border: 1px solid lightgrey;
+    border-radius: 0.25rem;
+    padding-left: 25px; }
 
+::-webkit-input-placeholder {
+  color: lightgrey; }
+
+.icon-magnifier-tool {
+  position: relative;
+  right: -25px; }
+
+.menu {
+  flex-grow: 4;
+  display: flex;
+  justify-content: flex-end; }
+  .menu a {
+    padding: 0px 15px;
+    font-weight: 700; }
+    .menu a:hover {
+      text-decoration: underline; }
+
+/* Receipe label */
+.receipe-label {
+  display: inline-block;
+  position: relative;
+  transform: rotate(270deg); }
+  .receipe-label:before, .receipe-label:after {
+    content: "";
+    position: absolute;
+    height: 5px;
+    border-top: 1px solid white;
+    top: 6px;
+    width: 50px; }
+  .receipe-label:before {
+    right: 100%;
+    margin-right: 15px; }
+  .receipe-label:after {
+    left: 100%;
+    margin-left: 15px; }
+
+/* Content elements */
 .number-container {
   width: 50%;
   border-bottom: 1px solid #fff;
@@ -180,12 +180,112 @@ button {
   border-radius: 0.2rem;
   background-color: #4591E0;
   border: 1px solid #4591E0;
-  color: #fff; }
+  color: #fff;
+  transition: 0.3s; }
   button:hover {
     background-color: #062b53;
     border: 1px solid #062b53; }
   button:active, button:focus {
     border: 1px solid #062b53;
     outline: none; }
+
+.social-mobile {
+  display: none; }
+
+/* Footer elements */
+.footer-text {
+  margin-left: 10px; }
+  .footer-text div {
+    margin-bottom: 5px; }
+  .footer-text .review-number {
+    color: #4591E0;
+    font-weight: 700; }
+
+.other-receipe {
+  flex-grow: 1;
+  background-color: #454C5C;
+  opacity: 0.85;
+  display: flex;
+  align-items: center;
+  height: 100%;
+  justify-content: center; }
+
+/* Styling for mobile phones */
+@media only screen and (max-width: 600px) {
+  .wrapper {
+    grid-template-columns: [col] 50% [col] 50%;
+    grid-template-rows: [row] 50px [row] auto [row] 50px [row] 100px [row];
+    grid-gap: 0px;
+    /* Big image in the background */ }
+    .wrapper:after {
+      background-size: 100% 90vh;
+      opacity: 0.7;
+      position: absolute;
+      left: 50%;
+      z-index: -1;
+      width: 50%;
+      height: 100vh; }
+
+  .receipe-span {
+    display: none; }
+
+  .header {
+    grid-column: col 1 / span 2; }
+
+  .receipe-description {
+    grid-column: col 1/span 1; }
+
+  .receipe-number {
+    grid-column: col 2/span 1; }
+
+  .social-mobile {
+    display: block;
+    grid-column: col 1/span 3;
+    grid-row: 3; }
+
+  .footer {
+    grid-column: col 1 / span 2;
+    grid-row: 4;
+    display: block; }
+
+  .other-receipe {
+    justify-content: flex-start;
+    padding-left: 20px; }
+
+  .menu {
+    display: none; }
+
+  .social-media {
+    display: none; }
+
+  .social-mobile {
+    text-align: center; }
+    .social-mobile a {
+      padding-left: 10px;
+      padding-right: 10px;
+      font-size: 2rem; }
+
+  .empty {
+    display: none; }
+
+  .receipe-title {
+    width: 175px; }
+    .receipe-title span {
+      font-size: 1.3rem; }
+
+  .description {
+    width: 150px;
+    margin-top: 10px; }
+
+  button {
+    width: 115px;
+    padding: 8px 10px; }
+
+  .receipe-number .number {
+    border-right: none; }
+
+  .number-container {
+    border-bottom: none;
+    width: 100%; } }
 
 /*# sourceMappingURL=style.css.map */
